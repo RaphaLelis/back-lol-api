@@ -1,0 +1,42 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API STATUS LOL",
+        "description": "This API is for viewing the status of your League of Legends account",
+        "termsOfService": "http://localhost:3333/terms/",
+        "contact": {
+            "email": "raphalelis@outlook.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [{
+        "url": "http://localhost:3333/v1",
+        "description": "API de test"
+    }],
+    "paths": {
+        "/summoner/:summonerName": {
+            "get": {
+                "summary": "Get a summoner by summoner name",
+                "description": "This route will be responsible for fetching your account data in league of legends",
+                "tags": ["SummonerName"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "SummonerName": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
