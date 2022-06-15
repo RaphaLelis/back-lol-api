@@ -1,5 +1,3 @@
-const swaggerUi = require("swagger-ui-express");
-const swaggerDocs = require("./swagger.json");
 const express = require("express");
 const { json } = require("express");
 require("dotenv").config();
@@ -10,9 +8,9 @@ const cors = require("cors");
 
 const app = express();
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use(json());
+app.use(cors());
 app.listen(process.env.PORT || 3333);
-
 
 app.get("/summoner/:summonerName", async(req, res) => {
     const { summonerName } = req.params;
